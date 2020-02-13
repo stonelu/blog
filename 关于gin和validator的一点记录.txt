@@ -1,0 +1,17 @@
+最近打算用go写一个电商平台
+技术结构大概是这样的
+1.前端vue
+2.后端gin + xorm
+
+在趟坑gin的过程中,几个坑需要注意
+
+1.关于gin的validator tag name:
+我用的gin是1.5版本,号称已经使用validator v9版本
+然后自然而然就使用validator v9 的新tag name "validate"
+然后你会发现根本没卵用,baidu,翻墙google都语焉不详
+不得已去直接看源码了,然后发现github.com\gin-gonic\gin@v1.5.0\binding\default_validator.go
+其中有一句v.validate.SetTagName("binding"),瞬间一万个草泥马奔腾
+
+2.validator的提示本地化
+查看了go-playground官方的示例,感觉就像吃了一万个新冠病毒,一点都不go
+现在正在寻找好的本地化提示语言方式
